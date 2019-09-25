@@ -1,6 +1,6 @@
 # Django specific files #
 ##########################
-/ResideTec/settings.py
+ResideTec/settings.py
 
 # OS generated files #
 ######################
