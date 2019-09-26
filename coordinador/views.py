@@ -16,3 +16,12 @@ def login(request):
     else:
         return render(request,'login.html')
 
+def register(request):
+    return render(request,'register.html')
+
+def index(request):
+    return render(request,'base.html')
+
+def calificaciones(request):
+    return render(request,'calificaciones.html')    
+
