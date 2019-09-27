@@ -25,3 +25,8 @@ def index(request):
 def calificaciones(request):
     return render(request,'calificaciones.html')    
 
+def offerproyecto(request):
+    return render(request,'ofertaproy.html')
+
+def offerinvestiga(request):
+    return render(request,'ofertainv.html')

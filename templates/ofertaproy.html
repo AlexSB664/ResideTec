@@ -1,0 +1,113 @@
+{% extends 'base.html'%}
+{% block title%}Calificaciones{% endblock %}
+{% block content %}
+{% load staticfiles %}
+
+<div class="container">
+
+    <div class="row">
+
+      <!-- Blog Entries Column -->
+      <div class="col-md-8">
+
+        <h1 class="my-4">Oferta de Proyectos
+          <small>Ingenieria en sistemas</small>
+        </h1>
+
+        <div class="card mb-4">
+            <img class="card-img-top" src="{% static 'post2.jpg' %}" alt="Card image cap">
+            <div class="card-body">
+              <h2 class="card-title">Programador T.I</h2>
+              <p class="card-text">Forma parte del equipo como "Programador"
+                  Requisitos:
+                  Licenciatura o Ingeniería en Informática.
+                  1 año de experiencia.
+                  Disponibilidad de horario</p>
+              <a href="#" class="btn btn-primary">Mas informacion &rarr;</a>
+            </div>
+            <div class="card-footer text-muted">
+              Posted on January 1, 2017 by
+              <a href="#">Reynaldo Salas</a>
+            </div>
+          </div>
+
+        <!-- Blog Post -->
+        <div class="card mb-4">
+          <img class="card-img-top" src="{% static 'post1.jpg' %}" alt="Card image cap">
+          <div class="card-body">
+            <h2 class="card-title">Se busca practicante</h2>
+            <p class="card-text">Si lo tuyo es el Desarrollo de Software y acabas de egresar de Ingeniería o Informática, esta posición te viene como 💍 al 👆
+
+                ¡Buscamos Desarrolladores de Software!
+                
+                El sueldo es según aptitudes; las prestaciones son superiores a la ley y el ambiente de trabajo es el mejor. Debes ser 100% Bilingües Inglés-Español
+                
+                ¡Envía tu Currículum!
+                📩 - - > talent@ggasolutions.com 
+                ☎️ 664 - 634 0799
+                
+                #PeopleFirst #Tijuana #Software </p>
+            <a href="#" class="btn btn-primary">Mas informacion &rarr;</a>
+          </div>
+          <div class="card-footer text-muted">
+            Posted on January 1, 2017 by
+            <a href="#">GGA solutions</a>
+          </div>
+        </div>
+
+        <!-- Blog Post -->
+        
+
+        <!-- Blog Post -->
+        <div class="card mb-4">
+          <img class="card-img-top" src="{% static 'post3.jpg' %}" alt="Card image cap">
+          <div class="card-body">
+            <h2 class="card-title">IT Support</h2>
+            <p class="card-text">Enviar C.V: a sistemas@colegiouia.edu.mx
+            </p>
+            <a href="#" class="btn btn-primary">Mas informacion &rarr;</a>
+          </div>
+          <div class="card-footer text-muted">
+            Posted on January 1, 2017 by
+            <a href="#">Reynaldo Salas</a>
+          </div>
+        </div>
+
+        <!-- Pagination -->
+        <ul class="pagination justify-content-center mb-4">
+          <li class="page-item">
+            <a class="page-link" href="#">&larr; Anterior</a>
+          </li>
+          <li class="page-item disabled">
+            <a class="page-link" href="#">Siguiente &rarr;</a>
+          </li>
+        </ul>
+
+      </div>
+
+      <!-- Sidebar Widgets Column -->
+      <div class="col-md-4">
+
+        <!-- Search Widget -->
+        <div class="card my-4">
+          <h5 class="card-header">Buscar</h5>
+          <div class="card-body">
+            <div class="input-group">
+              <input type="text" class="form-control" placeholder="Buscar post...">
+              <span class="input-group-btn">
+                <button class="btn btn-secondary" type="button">Buscar</button>
+              </span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+    <!-- /.row -->
+
+  </div>
+  <!-- /.container -->
+
+
+{% endblock %}
