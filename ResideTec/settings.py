@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/2.2/ref/settings/
 """
 
+from django.urls import reverse_lazy
 import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -24,7 +25,7 @@ SECRET_KEY = 'bu%quel4)4q!_)62*++p6-rj*8fy!z!lufq25^f=(!mkbalq+*'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 
-#configuracion local
+# configuracion local
 DEBUG = True
 ALLOWED_HOSTS = []
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
@@ -87,16 +88,16 @@ WSGI_APPLICATION = 'ResideTec.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
- DATABASES = {
-     'default': {
-         'ENGINE': 'django.db.backends.mysql',
-         'NAME': 'db',
-         'USER': 'root',
-         'PASSWORD': 'password',
-         'HOST': 'localhost',
-         'PORT': '',
-     }
- }
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'ResideTec',
+        'USER': 'root',
+        'PASSWORD': 'V88Tig1',
+        'HOST': 'localhost',
+        'PORT': '',
+    }
+}
 
 # DATABASES = {
 #     'default': {
@@ -144,21 +145,20 @@ USE_TZ = True
 STATIC_URL = '/static/'
 AUTH_USER_MODEL = 'superusuario.User'
 
-#para la subida de archivos
+# para la subida de archivos
 MEDIA_URL = '/media/'
 
 
-#Para las fotos
+# Para las fotos
 INTERCEPT_REDIRECTS = False
 INTERNAL_IPS = ('127.0.0.1',)
 
-from django.urls import reverse_lazy
 
 LOGIN_URL = reverse_lazy('login')
 LOGIN_REDIRECT_URL = reverse_lazy('index')
 LOGOUT_URL = reverse_lazy('logout')
 
-#correo
+# correo
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_USE_TLS = True
