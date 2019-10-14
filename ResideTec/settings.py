@@ -93,7 +93,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'ResideTec',
         'USER': 'root',
-        'PASSWORD': 'V88Tig1',
+        'PASSWORD': '',
         'HOST': 'localhost',
         'PORT': '',
     }
