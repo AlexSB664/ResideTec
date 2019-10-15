@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+    {% load staticfiles %}
+
+<head>
+    <meta charset='utf-8'>
+    <title>Crea tu cuenta en ResideTec</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel="icon" type="image/png" href="{% static 'icon.png' %}" />
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'font-awesome/css/font-awesome.css' %}" rel="stylesheet">
+
+    <link href="{% static 'css/animate.css' %}" rel="stylesheet">
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+</head>
+<body class="gray-bg">
+    
+    <div class="middle-box text-center  animated fadeInUp">
+            <div>
+
+                    <img src="{% static 'logo.svg' %}" width="300" height="190">
+    
+                </div>
+            <form class="form-horizontal" role="form">
+                    <h2>Crea tu cuenta ResideTec</h2>
+                    <div class="form-group">
+                        <label for="firstName" class="col-sm-3 control-label">Nombre completo</label>
+                        <div class="col-sm-9">
+                            <input type="text" id="firstName" placeholder="Nombre" class="form-control" autofocus>
+                        </div>
+                    </div>
+                   
+                    <div class="form-group">
+                        <label for="email" class="col-sm-3 control-label">Correo institucional </label>
+                        <div class="col-sm-9">
+                            <input type="email" id="email" placeholder="Email" class="form-control" name= "email">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="password" class="col-sm-3 control-label">Contraseña</label>
+                        <div class="col-sm-9">
+                            <input type="password" id="password" placeholder="Password" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="password" class="col-sm-3 control-label">Confirmacion*</label>
+                        <div class="col-sm-9">
+                            <input type="password" id="password" placeholder="Password" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="phoneNumber" class="col-sm-3 control-label">Numero de telefono </label>
+                        <div class="col-sm-9">
+                            <input type="phoneNumber" id="phoneNumber" placeholder="Phone number" class="form-control">
+                            
+                        </div>
+                    </div>
+                    
+                    
+                 
+                    
+                    <button type="submit" class="btn btn-primary btn-block">Registrar</button>
+                </form> <!-- /form -->
+    </div>
+</body>
+</html>

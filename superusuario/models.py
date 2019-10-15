@@ -82,3 +82,26 @@ class Carrera(models.Model):
 
 	def __str__(self):
 		return self.nombre
+
+class Institucion(models.Model):
+    nombre=models.CharField(max_length=100)
+    direccion=models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.nombre
+
+class Periodo(models.Model):
+    detalle=models.CharField(max_length=100) #Month and year period
+
+    def __str__(self):
+        return self.detalle
+
+class Empresa(models.Model):
+    nombre=models.CharField(max_length=50)
+    giro=models.CharField(max_length=50)
+    direccion=models.CharField(max_length=50)
+    telefono=models.CharField(max_length=20)
+
+    def __str__(self):
+        return self.nombre
+

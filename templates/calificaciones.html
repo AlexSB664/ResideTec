@@ -1,0 +1,64 @@
+{% extends 'base.html'%}
+{% block title%}Calificaciones{% endblock %}
+{% block content %}
+{% load staticfiles %}
+<div class="container-fluid animated fadeInDown">
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+      <h6 class="m-0 font-weight-bold text-primary">Calificaciones del semestre</h6>
+    </div>
+    <div class="card-body">
+      <div class="table-responsive">
+        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+          <thead>
+            <tr>
+              <th>Numero de evaluacion</th>
+              <th>Evaluacion A.Externo</th>
+              <th>Evaluacion A.interno</th>
+              <th>Calificacion final</th>
+              <th>Vista previa</th>
+              
+            </tr>
+          </thead>
+          <tfoot>
+            <tr>
+                <th>Numero de evaluacion</th>
+                <th>Evaluacion A.Externo</th>
+                <th>Evaluacion A.interno</th>
+                <th>Calificacion final</th>
+                <th>Vista previa</th>
+              
+            </tr>
+          </tfoot>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>100</td>
+              <td>100</td>
+              <td>100</td>
+              <td><a href="{% static 'Evaluacion.pdf' %}" download="Evaluacion.pdf">Ver</a></td>
+              
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>0</td>
+              <td>0</td>
+              <td>0</td>
+              <td>No disponible</td>
+              
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>0</td>
+              <td>0</td>
+              <td>0</td>
+              <td>No disponible</td>
+              
+            </tr>            
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  </div>
+{% endblock %}
