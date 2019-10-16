@@ -76,6 +76,10 @@ class User(AbstractBaseUser, PermissionsMixin):
 
     def get_short_name(self):
         return self.email
+    
+    def save(self,*args,**kwargs):
+        self.set_password(self.password)
+        super(User,self).save(*args,**kwargs)
 
 class Carrera(models.Model):
 	nombre=models.CharField(max_length=100)
@@ -104,4 +108,3 @@ class Empresa(models.Model):
 
     def __str__(self):
         return self.nombre
-

@@ -1,6 +1,9 @@
 from django.shortcuts import render
-
+from django.contrib.auth.decorators import login_required
+from django.shortcuts import render,redirect,HttpResponse
+from django.contrib import auth
 # Create your views here.
+import sys
 
 def login(request):
     if request.method ==  'POST':
@@ -16,17 +19,26 @@ def login(request):
     else:
         return render(request,'login.html')
 
+@login_required
 def register(request):
     return render(request,'register.html')
 
+@login_required
 def index(request):
     return render(request,'base.html')
 
+@login_required
 def calificaciones(request):
     return render(request,'calificaciones.html')    
 
+@login_required
 def offerproyecto(request):
     return render(request,'ofertaproy.html')
 
+@login_required
 def offerinvestiga(request):
     return render(request,'ofertainv.html')
+
+@login_required
+def history(request):
+    return render(request,'coordinador/addResidencia.html')

@@ -33,4 +33,8 @@ class Alumno(models.Model):
 	proyecto = models.ForeignKey(Proyecto,on_delete=models.CASCADE,blank=True, null=True, related_name="proyecto_del_alumno")
 
 	def __str__(self):
-		return  self.matricula+self.email.email
+		return  self.NoControl+self.email.email
+	class Meta:
+		permissions = (
+			('is_student', 'Is_Student'),
+        )
