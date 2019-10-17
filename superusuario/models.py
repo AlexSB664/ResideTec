@@ -23,7 +23,8 @@ class MyUserManager(BaseUserManager):
         email = self.normalize_email(email)
         user = self.model(email=email, **extra_fields)
         user.nombre_usuario=nombre_usuario
-        user.set_password(password)
+        user.password = password
+        # user.set_password(password)
         user.save()
         return user
 
