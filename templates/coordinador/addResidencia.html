@@ -2,10 +2,25 @@
 {% block title%}History{% endblock %}
 {% block content %}
 {% load staticfiles %}
-<form action="POST" >
-<input type="text" />
-</form>
-{{user}}
-{{user.perms}}
-<textarea onclick="this.focus();this.select()" style="width: 100%;"> {% filter force_escape %} {% debug %} {% endfilter %}</textarea>}
+<div class="container-fluid animated fadeInDown">
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+          <h6 class="m-0 font-weight-bold text-primary">Calificaciones del semestre</h6>
+        </div>
+        <div class="card-body">
+          <div class="table-responsive">
+              <form method="POST">
+                  {% csrf_token %}
+                  {% for field in form %}
+                  <br>
+                  {{field.label}}
+                  {{field}}
+                  {% endfor %}
+                  <button type="submit">Salvar</button>
+                </form>
+          </div>
+        </div>
+      </div>
+      </div>
+    
 {% endblock %}
