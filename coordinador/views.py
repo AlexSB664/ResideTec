@@ -12,12 +12,16 @@ def login(request):
         user = auth.authenticate(email = email, password = password)
         if user is not None:
             auth.login(request, user)
-            return redirect('redi')
+            return redirect('general.index')
         else:
             mensaje = "Error contraseña o correo no valido"
             return render(request,'login.html',{'mensaje':mensaje})
     else:
         return render(request,'login.html')
+
+@login_required
+def generalIndex(request):
+    return render(request,'coordinador/addResidencia.html');
 
 @login_required
 def register(request):

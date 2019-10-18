@@ -4,6 +4,7 @@ from coordinador import views
 urlpatterns = [
 	url(r'^$',views.login, name='index'),
 	url(r'^login$',views.login, name='login'),
+	url(r'^index$',views.generalIndex, name='general.index'),
 	url('register',views.register, name='register'),
     url('index',views.index, name='Welcome'),
 	url('calificaciones',views.calificaciones,name="calificaciones"),

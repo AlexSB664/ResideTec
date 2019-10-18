@@ -19,7 +19,7 @@
     <link href="{% static 'css/animate.css' %}" rel="stylesheet">
     <link href="{% static 'css/style.css' %}" rel="stylesheet">
     {% if user.is_authenticated %}
-    <META HTTP-EQUIV="REFRESH" CONTENT="0;URL={%  url 'index0' %}">
+    <META HTTP-EQUIV="REFRESH" CONTENT="0;URL={%  url 'general.index' %}">
     {% endif %}
 
 </head>
@@ -50,7 +50,6 @@
                     {{mensaje}}
                 </div>
                 {% endif %}
-                {{user}}
                 <button type="submit" class="btn btn-primary block full-width m-b">Entrar</button>
                 <!-- <a class="btn btn-sm btn-primary btn-block" type="submit">Entrar</a> -->
                 <a href=""><small>Olvide mi contraseña</small></a>

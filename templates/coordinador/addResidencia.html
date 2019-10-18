@@ -5,4 +5,7 @@
 <form action="POST" >
 <input type="text" />
 </form>
+{{user}}
+{{user.perms}}
+<textarea onclick="this.focus();this.select()" style="width: 100%;"> {% filter force_escape %} {% debug %} {% endfilter %}</textarea>}
 {% endblock %}
