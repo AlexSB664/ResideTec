@@ -3,6 +3,7 @@ from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect, HttpResponse
 from django.contrib import auth
 from .forms import ProyectoForm
+from alumno.models import Proyecto
 # Create your views here.
 import sys
 
@@ -21,6 +22,9 @@ def login(request):
     else:
         return render(request, 'login.html')
 
+def logout(request):
+    auth.logout(request.user)
+    return redirect('login')
 
 @login_required
 def generalIndex(request):
@@ -53,7 +57,7 @@ def offerinvestiga(request):
 
 
 @login_required
-def history(request):
+def addProjectoToLog(request):
     if request.method == 'POST':
         form = ProyectoForm(request.POST)
         if form.is_valid():
@@ -67,3 +71,7 @@ def history(request):
         return render(request,'coordinador/addResidencia.html',{
             'form':form
         })
+
+def indexProjects(request):
+    projects = Proyecto.objects.all()
+    return render(request,'coordinador/projectsIndex.html',{'projects':projects})

@@ -57,8 +57,9 @@
         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Lista de ofertas:</h6>
-            <a class="collapse-item" href="ofertaproyecto">Proyectos</a>
-            <a class="collapse-item" href="{% url 'addToHistory' %}">Agregar nuevos Proyectos</a>
+            <a class="collapse-item" href="ofertaproyecto">Ofertas</a>
+            <a class="collapse-item" href="{% url 'addOldProject' %}">Agregar nuevos Proyectos</a>
+            <a class="collapse-item" href="{% url 'projects.index' %}">Todos los Proyectos</a>
             <!-- <a class="collapse-item" href="ofertaproyecto">Investigacion</a> -->
           </div>
         </div>
@@ -189,9 +190,9 @@
               <div class="topbar-divider d-none d-sm-block"></div>
   
               <!-- Nav Item - User Information -->
-              <li class="nav-item dropdown no-arrow">
+              <div class="nav-item dropdown no-arrow" top="20px">
                 <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  <span class="mr-2 d-none d-lg-inline text-gray-600 small">Usuario</span>
+                  <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{user}}</span>
                   <img class="img-profile rounded-circle" src="{% static 'profile.png' %}">
                 </a>
                 <!-- Dropdown - User Information -->
@@ -202,12 +203,12 @@
                   </a>
                   
                   <div class="dropdown-divider"></div>
-                  <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                  <a class="dropdown-item" href="{% url 'logout' %}" data-toggle="modal" data-target="#logoutModal">
                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                     Cerrar sesion
                   </a>
                 </div>
-              </li>
+              </div>
   
             </ul>
   
@@ -218,6 +219,7 @@
         <div class="container my-auto">
           <div class="copyright text-center my-auto">
             <span>ResideTec &copy; 2019</span>
+            {{request.resolver_match.url_name}}
           </div>
         </div>
       </footer>

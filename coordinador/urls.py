@@ -6,9 +6,11 @@ urlpatterns = [
 	url(r'^login$',views.login, name='login'),
 	url(r'^index$',views.generalIndex, name='general.index'),
 	url('register',views.register, name='register'),
-    url('index',views.index, name='Welcome'),
+    url(r'^index$',views.index, name='Welcome'),
 	url('calificaciones',views.calificaciones,name="calificaciones"),
 	url('ofertaproyecto',views.offerproyecto,name="offerproy"),
 	url('ofertainvestigacion',views.offerinvestiga,name="offerinv"),
-	url(r'^historyResidencie.php$',views.history,name="addToHistory"),
+	url(r'^proyectoViejo$',views.addProjectoToLog,name="addOldProject"),
+	url(r'^proyectos/index$',views.indexProjects,name="projects.index"),
+	url(r'^logout$',views.logout, name='logout'),
 ]

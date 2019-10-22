@@ -21,6 +21,7 @@ class Proyecto(models.Model):
 	asesore =  models.ForeignKey(AsesorExterno,on_delete=models.CASCADE,blank=True, null=True, related_name="asesorexterno_del_alumno")
 	# status
 	estatus = models.CharField(max_length=50,null=True)
+	terminado = models.BooleanField(null=False,default=False)
 
 	def __str___(self):
 		return self.nombre

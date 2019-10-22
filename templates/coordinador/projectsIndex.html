@@ -9,16 +9,14 @@
         </div>
         <div class="card-body">
           <div class="table-responsive">
-              <form method="POST">
-                  {% csrf_token %}
-                  {% for field in form %}
-                  <div class="form-group col-md-12">
-                  <label for="inputEmail4">{{field.label}}</label>
-                  {{field}}
-                  </div>
-                  {% endfor %}
-                  <button type="submit">Salvar</button>
-                </form>
+              {% for project in projects %}
+              {{project.nombre}}
+              <br>
+              {{project.descripcion}}
+              <br>
+              {{project.status}}
+              <br>
+              {% endfor %}
           </div>
         </div>
       </div>
