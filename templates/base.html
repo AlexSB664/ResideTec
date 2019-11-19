@@ -116,7 +116,7 @@
 
       <div id="content-wrapper">
       <!-- Topbar -->
-      <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow animated fadeInDown">
+      <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow animated fadeInDown" style="z-index: 1">
 
             <!-- Sidebar Toggle (Topbar) -->
             <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
@@ -134,6 +134,9 @@
                 </div>
               </div>
             </form>
+
+            <!--LOL-->
+           
   
             <!-- Topbar Navbar -->
             <ul class="navbar-nav ml-auto">
@@ -213,8 +216,8 @@
             </ul>
   
           </nav>
-      {% block content %}
-      {% endblock %}
+          {% block content %}
+          {% endblock %}
       <footer class="sticky-footer bg-white">
         <div class="container my-auto">
           <div class="copyright text-center my-auto">
