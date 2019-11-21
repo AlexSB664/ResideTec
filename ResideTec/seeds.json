@@ -1,0 +1,798 @@
+[
+    {
+        "model": "contenttypes.contenttype",
+        "pk": 1,
+        "fields": {
+            "app_label": "admin",
+            "model": "logentry"
+        }
+    },
+    {
+        "model": "contenttypes.contenttype",
+        "pk": 2,
+        "fields": {
+            "app_label": "auth",
+            "model": "permission"
+        }
+    },
+    {
+        "model": "contenttypes.contenttype",
+        "pk": 3,
+        "fields": {
+            "app_label": "auth",
+            "model": "group"
+        }
+    },
+    {
+        "model": "contenttypes.contenttype",
+        "pk": 4,
+        "fields": {
+            "app_label": "contenttypes",
+            "model": "contenttype"
+        }
+    },
+    {
+        "model": "contenttypes.contenttype",
+        "pk": 5,
+        "fields": {
+            "app_label": "sessions",
+            "model": "session"
+        }
+    },
+    {
+        "model": "contenttypes.contenttype",
+        "pk": 6,
+        "fields": {
+            "app_label": "superusuario",
+            "model": "carrera"
+        }
+    },
+    {
+        "model": "contenttypes.contenttype",
+        "pk": 7,
+        "fields": {
+            "app_label": "superusuario",
+            "model": "empresa"
+        }
+    },
+    {
+        "model": "contenttypes.contenttype",
+        "pk": 8,
+        "fields": {
+            "app_label": "superusuario",
+            "model": "institucion"
+        }
+    },
+    {
+        "model": "contenttypes.contenttype",
+        "pk": 9,
+        "fields": {
+            "app_label": "superusuario",
+            "model": "periodo"
+        }
+    },
+    {
+        "model": "contenttypes.contenttype",
+        "pk": 10,
+        "fields": {
+            "app_label": "superusuario",
+            "model": "user"
+        }
+    },
+    {
+        "model": "contenttypes.contenttype",
+        "pk": 11,
+        "fields": {
+            "app_label": "coordinador",
+            "model": "coordinador"
+        }
+    },
+    {
+        "model": "contenttypes.contenttype",
+        "pk": 12,
+        "fields": {
+            "app_label": "asesor",
+            "model": "asesorexterno"
+        }
+    },
+    {
+        "model": "contenttypes.contenttype",
+        "pk": 13,
+        "fields": {
+            "app_label": "asesor",
+            "model": "asesorinterno"
+        }
+    },
+    {
+        "model": "contenttypes.contenttype",
+        "pk": 14,
+        "fields": {
+            "app_label": "alumno",
+            "model": "alumno"
+        }
+    },
+    {
+        "model": "contenttypes.contenttype",
+        "pk": 15,
+        "fields": {
+            "app_label": "alumno",
+            "model": "proyecto"
+        }
+    },
+    {
+        "model": "sessions.session",
+        "pk": "005z57k0753xdifbablchdtif3jszi5c",
+        "fields": {
+            "session_data": "N2ZhZTcxOGViZDEyOGI4NzJiMTg5MTM2NDFiMjBkMWM2M2MxYjUwZjp7Il9hdXRoX3VzZXJfaWQiOiIxIiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiI2ZWZkOWVhMjY5MjA3MTIwYmZkY2U4NGEyYTQzNDkzMWY5ZDcyNDZkIn0=",
+            "expire_date": "2019-12-05T06:41:55.344Z"
+        }
+    },
+    {
+        "model": "superusuario.carrera",
+        "pk": 1,
+        "fields": {
+            "nombre": "Ing. Sistemas Computacionales"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 1,
+        "fields": {
+            "name": "Can add log entry",
+            "content_type": 1,
+            "codename": "add_logentry"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 2,
+        "fields": {
+            "name": "Can change log entry",
+            "content_type": 1,
+            "codename": "change_logentry"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 3,
+        "fields": {
+            "name": "Can delete log entry",
+            "content_type": 1,
+            "codename": "delete_logentry"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 4,
+        "fields": {
+            "name": "Can view log entry",
+            "content_type": 1,
+            "codename": "view_logentry"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 5,
+        "fields": {
+            "name": "Can add permission",
+            "content_type": 2,
+            "codename": "add_permission"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 6,
+        "fields": {
+            "name": "Can change permission",
+            "content_type": 2,
+            "codename": "change_permission"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 7,
+        "fields": {
+            "name": "Can delete permission",
+            "content_type": 2,
+            "codename": "delete_permission"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 8,
+        "fields": {
+            "name": "Can view permission",
+            "content_type": 2,
+            "codename": "view_permission"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 9,
+        "fields": {
+            "name": "Can add group",
+            "content_type": 3,
+            "codename": "add_group"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 10,
+        "fields": {
+            "name": "Can change group",
+            "content_type": 3,
+            "codename": "change_group"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 11,
+        "fields": {
+            "name": "Can delete group",
+            "content_type": 3,
+            "codename": "delete_group"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 12,
+        "fields": {
+            "name": "Can view group",
+            "content_type": 3,
+            "codename": "view_group"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 13,
+        "fields": {
+            "name": "Can add content type",
+            "content_type": 4,
+            "codename": "add_contenttype"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 14,
+        "fields": {
+            "name": "Can change content type",
+            "content_type": 4,
+            "codename": "change_contenttype"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 15,
+        "fields": {
+            "name": "Can delete content type",
+            "content_type": 4,
+            "codename": "delete_contenttype"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 16,
+        "fields": {
+            "name": "Can view content type",
+            "content_type": 4,
+            "codename": "view_contenttype"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 17,
+        "fields": {
+            "name": "Can add session",
+            "content_type": 5,
+            "codename": "add_session"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 18,
+        "fields": {
+            "name": "Can change session",
+            "content_type": 5,
+            "codename": "change_session"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 19,
+        "fields": {
+            "name": "Can delete session",
+            "content_type": 5,
+            "codename": "delete_session"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 20,
+        "fields": {
+            "name": "Can view session",
+            "content_type": 5,
+            "codename": "view_session"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 21,
+        "fields": {
+            "name": "Can add carrera",
+            "content_type": 6,
+            "codename": "add_carrera"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 22,
+        "fields": {
+            "name": "Can change carrera",
+            "content_type": 6,
+            "codename": "change_carrera"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 23,
+        "fields": {
+            "name": "Can delete carrera",
+            "content_type": 6,
+            "codename": "delete_carrera"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 24,
+        "fields": {
+            "name": "Can view carrera",
+            "content_type": 6,
+            "codename": "view_carrera"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 25,
+        "fields": {
+            "name": "Can add empresa",
+            "content_type": 7,
+            "codename": "add_empresa"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 26,
+        "fields": {
+            "name": "Can change empresa",
+            "content_type": 7,
+            "codename": "change_empresa"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 27,
+        "fields": {
+            "name": "Can delete empresa",
+            "content_type": 7,
+            "codename": "delete_empresa"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 28,
+        "fields": {
+            "name": "Can view empresa",
+            "content_type": 7,
+            "codename": "view_empresa"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 29,
+        "fields": {
+            "name": "Can add institucion",
+            "content_type": 8,
+            "codename": "add_institucion"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 30,
+        "fields": {
+            "name": "Can change institucion",
+            "content_type": 8,
+            "codename": "change_institucion"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 31,
+        "fields": {
+            "name": "Can delete institucion",
+            "content_type": 8,
+            "codename": "delete_institucion"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 32,
+        "fields": {
+            "name": "Can view institucion",
+            "content_type": 8,
+            "codename": "view_institucion"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 33,
+        "fields": {
+            "name": "Can add periodo",
+            "content_type": 9,
+            "codename": "add_periodo"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 34,
+        "fields": {
+            "name": "Can change periodo",
+            "content_type": 9,
+            "codename": "change_periodo"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 35,
+        "fields": {
+            "name": "Can delete periodo",
+            "content_type": 9,
+            "codename": "delete_periodo"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 36,
+        "fields": {
+            "name": "Can view periodo",
+            "content_type": 9,
+            "codename": "view_periodo"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 37,
+        "fields": {
+            "name": "Can add user",
+            "content_type": 10,
+            "codename": "add_user"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 38,
+        "fields": {
+            "name": "Can change user",
+            "content_type": 10,
+            "codename": "change_user"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 39,
+        "fields": {
+            "name": "Can delete user",
+            "content_type": 10,
+            "codename": "delete_user"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 40,
+        "fields": {
+            "name": "Can view user",
+            "content_type": 10,
+            "codename": "view_user"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 41,
+        "fields": {
+            "name": "Can add coordinador",
+            "content_type": 11,
+            "codename": "add_coordinador"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 42,
+        "fields": {
+            "name": "Can change coordinador",
+            "content_type": 11,
+            "codename": "change_coordinador"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 43,
+        "fields": {
+            "name": "Can delete coordinador",
+            "content_type": 11,
+            "codename": "delete_coordinador"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 44,
+        "fields": {
+            "name": "Can view coordinador",
+            "content_type": 11,
+            "codename": "view_coordinador"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 45,
+        "fields": {
+            "name": "Is_Admin",
+            "content_type": 11,
+            "codename": "is_admin"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 46,
+        "fields": {
+            "name": "Can add asesor externo",
+            "content_type": 12,
+            "codename": "add_asesorexterno"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 47,
+        "fields": {
+            "name": "Can change asesor externo",
+            "content_type": 12,
+            "codename": "change_asesorexterno"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 48,
+        "fields": {
+            "name": "Can delete asesor externo",
+            "content_type": 12,
+            "codename": "delete_asesorexterno"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 49,
+        "fields": {
+            "name": "Can view asesor externo",
+            "content_type": 12,
+            "codename": "view_asesorexterno"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 50,
+        "fields": {
+            "name": "Is_AdviserE",
+            "content_type": 12,
+            "codename": "is_adviserE"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 51,
+        "fields": {
+            "name": "Can add asesor interno",
+            "content_type": 13,
+            "codename": "add_asesorinterno"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 52,
+        "fields": {
+            "name": "Can change asesor interno",
+            "content_type": 13,
+            "codename": "change_asesorinterno"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 53,
+        "fields": {
+            "name": "Can delete asesor interno",
+            "content_type": 13,
+            "codename": "delete_asesorinterno"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 54,
+        "fields": {
+            "name": "Can view asesor interno",
+            "content_type": 13,
+            "codename": "view_asesorinterno"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 55,
+        "fields": {
+            "name": "Is_AdviserI",
+            "content_type": 13,
+            "codename": "is_adviserI"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 56,
+        "fields": {
+            "name": "Can add alumno",
+            "content_type": 14,
+            "codename": "add_alumno"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 57,
+        "fields": {
+            "name": "Can change alumno",
+            "content_type": 14,
+            "codename": "change_alumno"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 58,
+        "fields": {
+            "name": "Can delete alumno",
+            "content_type": 14,
+            "codename": "delete_alumno"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 59,
+        "fields": {
+            "name": "Can view alumno",
+            "content_type": 14,
+            "codename": "view_alumno"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 60,
+        "fields": {
+            "name": "Is_Student",
+            "content_type": 14,
+            "codename": "is_student"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 61,
+        "fields": {
+            "name": "Can add proyecto",
+            "content_type": 15,
+            "codename": "add_proyecto"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 62,
+        "fields": {
+            "name": "Can change proyecto",
+            "content_type": 15,
+            "codename": "change_proyecto"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 63,
+        "fields": {
+            "name": "Can delete proyecto",
+            "content_type": 15,
+            "codename": "delete_proyecto"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 64,
+        "fields": {
+            "name": "Can view proyecto",
+            "content_type": 15,
+            "codename": "view_proyecto"
+        }
+    },
+    {
+        "model": "superusuario.user",
+        "pk": 1,
+        "fields": {
+            "password": "pbkdf2_sha256$150000$G2U40bwnTMnO$OGZ/knAaSTAMasYIwgb153jt0LLoDIPlbiOLgYnt7BY=",
+            "last_login": "2019-11-21T06:41:55.194Z",
+            "is_superuser": true,
+            "email": "super@residetec.com",
+            "nombre_usuario": "super",
+            "nombres": null,
+            "apellido_paterno": null,
+            "apellido_materno": null,
+            "fecha_nacimiento": null,
+            "direccion": null,
+            "telefono": null,
+            "genero": null,
+            "foto_perfil": "default.jpeg",
+            "agregado": "2019-11-21T06:39:28.992Z",
+            "carrera": null,
+            "is_staff": true,
+            "is_active": true,
+            "groups": [],
+            "user_permissions": []
+        }
+    },
+    {
+        "model": "superusuario.user",
+        "pk": 2,
+        "fields": {
+            "password": "pbkdf2_sha256$150000$HxaUNXvYRllo$aXiYhn/5ri0s1clhlKPQd54LoUNKecuVMMx2uZf4tIM=",
+            "last_login": "2019-11-21T06:42:22Z",
+            "is_superuser": false,
+            "email": "reynaldo.salas@tectijuana.edu.mx",
+            "nombre_usuario": "REYSAL",
+            "nombres": "Reynaldo",
+            "apellido_paterno": "Salas",
+            "apellido_materno": "Carmona",
+            "fecha_nacimiento": "2019-11-21T06:42:54Z",
+            "direccion": "Enrique Segobiano",
+            "telefono": "6641237284",
+            "genero": "Masculino",
+            "foto_perfil": "default.jpeg",
+            "agregado": "2019-11-21T06:42:12Z",
+            "carrera": 1,
+            "is_staff": false,
+            "is_active": true,
+            "groups": [],
+            "user_permissions": [
+                45
+            ]
+        }
+    },
+    {
+        "model": "coordinador.coordinador",
+        "pk": 3,
+        "fields": {
+            "email": 2
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 1,
+        "fields": {
+            "action_time": "2019-11-21T06:43:37.431Z",
+            "user": 1,
+            "content_type": 10,
+            "object_id": "2",
+            "object_repr": "reynaldo.salas@tectijuana.edu.mx",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 2,
+        "fields": {
+            "action_time": "2019-11-21T06:45:02.258Z",
+            "user": 1,
+            "content_type": 11,
+            "object_id": "3",
+            "object_repr": "reynaldo.salas@tectijuana.edu.mx",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    }
+]
