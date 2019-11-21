@@ -12,7 +12,7 @@ class AsesorInterno(models.Model):
                                 blank=True, null=True, related_name="periodo_del_asesorinterno")
 
     def __str__(self):
-        return self.nombre
+        return self.email.email
 
     class Meta:
         permissions = (
@@ -30,7 +30,7 @@ class AsesorExterno(models.Model):
                                 blank=True, null=True, related_name="empresa_del_asesorexterno")
 
     def __str__(self):
-        return self.nombre
+        return self.email.email
 
     class Meta:
         permissions = (

@@ -2,10 +2,18 @@ from django.db import models
 
 # Create your models here.
 from django.contrib.auth.models import BaseUserManager
-from datetime import datetime 
+from datetime import datetime
 from django.contrib.auth.models import AbstractBaseUser
 from django.contrib.auth.models import PermissionsMixin
 from django.utils.translation import ugettext_lazy as _
+
+
+class Carrera(models.Model):
+    nombre = models.CharField(max_length=100, null=True, default='null')
+    logo = models.ImageField(upload_to='logos',null=True,default='default.png')
+    
+    def __str__(self):
+        return self.nombre
 
 class MyUserManager(BaseUserManager):
     """
@@ -51,6 +59,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     genero = models.CharField(max_length=65,null=True)
     foto_perfil = models.ImageField(upload_to='profiles',null=True,default='default.jpeg')
     agregado = models.DateTimeField(default=datetime.now, blank=True)
+    carrera = models.ForeignKey(Carrera,on_delete=models.CASCADE,blank=True, null=True, related_name="carrera_del_usuario")
     
     is_staff = models.BooleanField(
         _('staff status'),
@@ -82,11 +91,6 @@ class User(AbstractBaseUser, PermissionsMixin):
         self.set_password(self.password)
         super(User,self).save(*args,**kwargs)
 
-class Carrera(models.Model):
-	nombre=models.CharField(max_length=100)
-
-	def __str__(self):
-		return self.nombre
 
 class Institucion(models.Model):
     nombre=models.CharField(max_length=100)

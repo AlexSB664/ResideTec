@@ -15,7 +15,10 @@ def login(request):
         user = auth.authenticate(email=email, password=password)
         if user is not None:
             auth.login(request, user)
-            return redirect('general.index')
+            if (user.has_perm('coordinador.is_admin')):
+                return redirect('general.index')
+            else:
+                return redirect('logout')
         else:
             mensaje = "Error contraseña o correo no valido"
             return render(request, 'login.html', {'mensaje': mensaje})
