@@ -14,3 +14,15 @@ class Coordinador(models.Model):
 		permissions = (
 			('is_admin', 'Is_Admin'),
 		)
+
+class Oferta(models.Model):
+	flyer = models.ImageField(upload_to='flyers',null=True,default='default.jpeg')
+	titulo = models.CharField(max_length=50,default="Oferta de Trabajo")
+	descripcion = models.TextField(null=True)
+	telefono_contacto = models.CharField(max_length=10,null=True)
+	correo_contacto = models.CharField(max_length=100,null=True)
+	vigente = models.BooleanField(default=True)
+
+	def __str__(self):
+		return self.pk+self.titulo
+	

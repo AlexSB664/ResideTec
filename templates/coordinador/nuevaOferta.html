@@ -1,0 +1,27 @@
+{% extends 'base.html'%}
+{% block title%}Oferta Nueva{% endblock %}
+{% block content %}
+{% load staticfiles %}
+<div class="container-fluid animated fadeInDown">
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+          <h6 class="m-0 font-weight-bold text-primary">Calificaciones del semestre</h6>
+        </div>
+        <div class="card-body">
+          <div class="table-responsive">
+              <form method="POST">
+                  {% csrf_token %}
+                  {% for field in form %}
+                  <div class="form-group col-md-12">
+                  <label for="inputEmail4">{{field.label}}</label>
+                  {{field}}
+                  </div>
+                  {% endfor %}
+                  <button type="submit">Salvar</button>
+                </form>
+          </div>
+        </div>
+      </div>
+      </div>
+    
+{% endblock %}

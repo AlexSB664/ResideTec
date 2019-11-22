@@ -2,8 +2,9 @@ from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect, HttpResponse
 from django.contrib import auth
-from .forms import ProyectoForm
+from .forms import ProyectoForm,OfertaForm
 from alumno.models import Proyecto
+from .models import Oferta
 # Create your views here.
 import sys
 
@@ -78,3 +79,18 @@ def addProjectoToLog(request):
 def indexProjects(request):
     projects = Proyecto.objects.all()
     return render(request,'coordinador/projectsIndex.html',{'projects':projects})
+
+def nuevaOferta(request):
+    if request.method == 'POST':
+        form = OfertaForm(request.POST)
+        if form.is_valid():
+            oferta = form.save(commit=False)
+            if oferta.save():
+                return redirect('general.index')
+            else:
+                return redirect('general.index')
+    else:
+        form = OfertaForm()
+        return render(request,'coordinador/nuevaOferta.html',{
+            'form':form
+        })

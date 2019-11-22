@@ -1,5 +1,6 @@
 from django import forms
 from alumno.models import Proyecto
+from .models import Oferta
 
 
 class ProyectoForm(forms.ModelForm):
@@ -16,3 +17,8 @@ class ProyectoForm(forms.ModelForm):
         labels = {
             'terminado':'Ya fue terminado?',
         }
+
+class OfertaForm(forms.ModelForm):
+    class Meta:
+        model = Oferta
+        fields = ('flyer','titulo','descripcion','telefono_contacto','correo_contacto')
