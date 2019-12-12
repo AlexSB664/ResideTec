@@ -82,10 +82,10 @@ class User(AbstractBaseUser, PermissionsMixin):
         return self.email
 
     def get_full_name(self):
-        return self.email
+        return self.nombres+' '+self.apellido_paterno+' '+self.apellido_materno
 
     def get_short_name(self):
-        return self.email
+        return self.nombres
     
     def save(self,*args,**kwargs):
         self.set_password(self.password)

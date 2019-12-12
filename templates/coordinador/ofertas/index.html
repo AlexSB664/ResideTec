@@ -1,0 +1,73 @@
+{% extends 'base.html'%}
+{% block title%}Ofertas{% endblock %}
+{% block content %}
+{% load static %}
+{% load humanize %} 
+<div class="container">
+
+    <div class="row">
+
+        <!-- Blog Entries Column -->
+        <div class="col-md-8">
+        {% for oferta in ofertas %}
+        <!-- Blog Body -->
+
+            <h1 class="my-4">Oferta de Trabajo
+                <small>Ingenieria en sistemas</small>
+            </h1>
+
+            <div class="card mb-4">
+                <img class="card-img-top" src="{{ oferta.flyer.url }}" alt="Card image cap">
+                <div class="card-body">
+                    <h2 class="card-title">{{ oferta.titulo }}</h2>
+                    <p class="card-text">{{oferta.descripcion}}</p>
+                    <a href="#" class="btn btn-primary">Mas informacion &rarr;</a>
+                </div>
+                <div class="card-footer text-muted">
+                    Publicado {{ oferta.creado }} por
+                    <a href="#">{{oferta.creado_por.get_full_name}}</a>
+                </div>
+            </div>
+            <!-- Blog Body END -->
+            {% endfor %}
+            <!-- Blog Post -->
+
+
+            <!-- Pagination -->
+            <ul class="pagination justify-content-center mb-4">
+                <li class="page-item">
+                    <a class="page-link" href="#">&larr; Anterior</a>
+                </li>
+                <li class="page-item disabled">
+                    <a class="page-link" href="#">Siguiente &rarr;</a>
+                </li>
+            </ul>
+
+        </div>
+
+        <!-- Sidebar Widgets Column -->
+        <div class="col-md-4">
+
+            <!-- Search Widget -->
+            <div class="card my-4">
+                <h5 class="card-header">Buscar</h5>
+                <div class="card-body">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Buscar post...">
+                        <span class="input-group-btn">
+                            <button class="btn btn-secondary" type="button">Buscar</button>
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+    <!-- /.row -->
+
+</div>
+<!-- /.container -->
+
+
+{% endblock %}

@@ -22,7 +22,9 @@ class Oferta(models.Model):
 	telefono_contacto = models.CharField(max_length=10,null=True)
 	correo_contacto = models.CharField(max_length=100,null=True)
 	vigente = models.BooleanField(default=True)
+	creado = models.DateTimeField(auto_now_add=True,null=True)
+	modified = models.DateTimeField(auto_now=True,null=True)
+	creado_por = models.OneToOneField(User, on_delete=models.CASCADE,null=True)
 
 	def __str__(self):
 		return self.pk+self.titulo
-	

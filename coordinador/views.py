@@ -5,8 +5,10 @@ from django.contrib import auth
 from .forms import ProyectoForm,OfertaForm
 from alumno.models import Proyecto
 from .models import Oferta
+from superusuario.models import User
 # Create your views here.
 import sys
+from pprint import pprint
 
 
 def login(request):
@@ -76,21 +78,30 @@ def addProjectoToLog(request):
             'form':form
         })
 
+@login_required
 def indexProjects(request):
     projects = Proyecto.objects.all()
     return render(request,'coordinador/projectsIndex.html',{'projects':projects})
 
+@login_required
 def nuevaOferta(request):
     if request.method == 'POST':
-        form = OfertaForm(request.POST)
+        form = OfertaForm(request.POST, request.FILES)
         if form.is_valid():
             oferta = form.save(commit=False)
+            oferta.flyer = request.FILES['flyer']
+            oferta.creado_por = User.objects.get(id=request.user.id)
             if oferta.save():
-                return redirect('general.index')
+                return redirect('ofertas.index')
             else:
-                return redirect('general.index')
+                return redirect('ofertas.index')
     else:
         form = OfertaForm()
-        return render(request,'coordinador/nuevaOferta.html',{
+        return render(request,'coordinador/ofertas/nueva.html',{
             'form':form
         })
+
+@login_required
+def indexOferta(request):
+    ofertas = Oferta.objects.order_by('id').reverse()
+    return render(request,'coordinador/ofertas/index.html',{'ofertas':ofertas})

@@ -14,4 +14,5 @@ urlpatterns = [
 	url(r'^proyectos/index$',views.indexProjects,name="projects.index"),
 	url(r'^logout$',views.logout, name='logout'),
 	url(r'^ofertas/nueva$',views.nuevaOferta, name='nuevaOferta'),
+	url(r'^ofertas/index$',views.indexOferta, name='ofertas.index'),
 ]

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-{% load staticfiles %}
+{% load static %}
 
 <head>
   <meta charset='utf-8'>
@@ -23,7 +23,7 @@
 
 <body id="page-top">
   <div id="wrapper">
-    <ul class="navbar-nav bg-gradient-success sidebar sidebar-dark accordion animated fadeInDown "
+    <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion animated fadeInDown "
       id="accordionSidebar">
 
       <!-- Sidebar - Brand -->
@@ -31,7 +31,12 @@
         <div class="sidebar-brand-icon rotate-n-15">
           <link rel="icon" type="image/png" href="{% static 'icon.png' %}" />
         </div>
-        <div class="sidebar-brand-text mx-3">ResideTec </div>
+        <div class="text-center d-none d-md-inline">
+          <div style="background-color: white;">
+            <img src="{% static 'logo.svg' %}" width="150" height="50">
+          </div>
+          <div class="sidebar-brand-text mx-3">ResideTec</div>
+        </div>
       </a>
 
       <!-- Divider -->
@@ -61,8 +66,10 @@
         </a>
         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
-            <h6 class="collapse-header">Lista de ofertas:</h6>
-            <a class="collapse-item" href="{% url 'nuevaOferta' %}">Ofertas</a>
+            <h6 class="collapse-header">Ofertas:</h6>
+            <a class="collapse-item" href="{% url 'nuevaOferta' %}">Nueva Oferta</a>
+            <a class="collapse-item" href="{% url 'ofertas.index' %}">Ver Ofertas</a>
+            <a class="collapse-item" href="{% url 'offerproy' %}">Ver Ofertas Feik</a>
             <a class="collapse-item" href="{% url 'addOldProject' %}">Agregar nuevos Proyectos</a>
             <a class="collapse-item" href="{% url 'projects.index' %}">Todos los Proyectos</a>
             <!-- <a class="collapse-item" href="ofertaproyecto">Investigacion</a> -->
@@ -210,7 +217,7 @@
             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown"
               aria-haspopup="true" aria-expanded="false">
               <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{user}}</span>
-              <img class="img-profile rounded-circle" src="{% static 'profile.png' %}">
+              <img class="img-profile rounded-circle" src="{{ user.foto_perfil.url }}">
             </a>
             <!-- Dropdown - User Information -->
             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
@@ -220,7 +227,8 @@
               </a>
               <div class="dropdown-divider"></div>
               <a class="dropdown-item" href="{% url 'logout' %}">
-                <i href="{% url 'logout' %}" class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>Cerrar sesion</a>
+                <i href="{% url 'logout' %}" class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>Cerrar
+                sesion</a>
             </div>
           </div>
 
