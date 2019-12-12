@@ -52,7 +52,7 @@ INSTALLED_APPS = [
     'coordinador',
     'asesor',
     'alumno',
-    'django_extensions',
+    'django.contrib.humanize',
 ]
 
 MIDDLEWARE = [
