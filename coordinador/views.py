@@ -105,3 +105,8 @@ def nuevaOferta(request):
 def indexOferta(request):
     ofertas = Oferta.objects.order_by('id').reverse()
     return render(request,'coordinador/ofertas/index.html',{'ofertas':ofertas})
+
+@login_required
+def perfilPublico(request):
+    user = User.objects.get(id=request.GET['id'])
+    return render(request,'coordinador/perfil/view.html',{'user':user})

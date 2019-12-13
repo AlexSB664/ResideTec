@@ -25,5 +25,5 @@ class OfertaForm(forms.ModelForm):
         fields = ('flyer', 'titulo', 'descripcion',
                   'telefono_contacto', 'correo_contacto')
         widgets = {
-            'flyer': forms.FileInput(attrs={'class': 'form-control', 'accept': 'img'}),
+            'flyer': forms.FileInput(attrs={'class': 'form-control', 'accept': 'img', 'onchange': 'loadFile(event)'}),
         }

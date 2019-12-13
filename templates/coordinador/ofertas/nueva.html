@@ -3,25 +3,32 @@
 {% block content %}
 {% load static %}
 <div class="container-fluid animated fadeInDown">
-    <div class="card shadow mb-4">
-        <div class="card-header py-3">
-          <h6 class="m-0 font-weight-bold text-primary">Calificaciones del semestre</h6>
-        </div>
-        <div class="card-body">
-          <div class="table-responsive">
-              <form action="" method="POST" enctype="multipart/form-data">
-                  {% csrf_token %}
-                  {% for field in form %}
-                  <div class="form-group col-md-12">
-                  <label for="inputEmail4">{{field.label}}</label>
-                  {{field}}
-                  </div>
-                  {% endfor %}
-                  <button type="submit">Salvar</button>
-                </form>
+  <div class="card shadow mb-4">
+    <div class="card-header py-3">
+      <h6 class="m-0 font-weight-bold text-primary">Forma para oferta de trabajo</h6>
+    </div>
+    <div class="card-body">
+      <div class="table-responsive">
+        <form action="" method="POST" enctype="multipart/form-data">
+          {% csrf_token %}
+          <img id="output" width="700"/>
+          <script>
+            var loadFile = function (event) {
+              var output = document.getElementById('output');
+              output.src = URL.createObjectURL(event.target.files[0]);
+            };
+          </script>
+          {% for field in form %}
+          <div class="form-group col-md-12">
+            <label for="inputEmail4">{{field.label}}</label>
+            {{field}}
           </div>
-        </div>
+          {% endfor %}
+          <button type="submit">Salvar</button>
+        </form>
       </div>
-      </div>
-    
+    </div>
+  </div>
+</div>
+
 {% endblock %}

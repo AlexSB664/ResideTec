@@ -25,7 +25,7 @@
                 </div>
                 <div class="card-footer text-muted">
                     Publicado {{ oferta.creado }} por
-                    <a href="#">{{oferta.creado_por.get_full_name}}</a>
+                    <a href="{% url 'perfil.publico' %}?id={{user.id}}">{{oferta.creado_por.get_full_name}}</a>
                 </div>
             </div>
             <!-- Blog Body END -->

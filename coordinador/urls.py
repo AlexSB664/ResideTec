@@ -15,4 +15,5 @@ urlpatterns = [
 	url(r'^logout$',views.logout, name='logout'),
 	url(r'^ofertas/nueva$',views.nuevaOferta, name='nuevaOferta'),
 	url(r'^ofertas/index$',views.indexOferta, name='ofertas.index'),
+	url(r'^usuarios/perfil$',views.perfilPublico, name='perfil.publico'),
 ]
