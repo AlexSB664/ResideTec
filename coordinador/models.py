@@ -24,7 +24,7 @@ class Oferta(models.Model):
 	vigente = models.BooleanField(default=True)
 	creado = models.DateTimeField(auto_now_add=True,null=True)
 	modified = models.DateTimeField(auto_now=True,null=True)
-	creado_por = models.OneToOneField(User, on_delete=models.CASCADE,null=True)
+	creado_por = models.ForeignKey(User, related_name='publico_oferta', on_delete=models.CASCADE,null=True)
 
 	def __str__(self):
 		return self.pk+self.titulo
