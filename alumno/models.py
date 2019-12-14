@@ -24,7 +24,7 @@ class Proyecto(models.Model):
 
 	terminado = models.BooleanField(null=False,default=False)
 
-	def __str___(self):
+	def __str__(self):
 		return self.nombre
 
 class Alumno(models.Model):
@@ -34,7 +34,7 @@ class Alumno(models.Model):
 	proyecto = models.ForeignKey(Proyecto,on_delete=models.CASCADE,blank=True, null=True, related_name="proyecto_del_alumno")
 
 	def __str__(self):
-		return  self.NoControl+self.email
+		return  self.NoControl+self.email.email
 	class Meta:
 		permissions = (
 			('is_student', 'Is_Student'),
