@@ -27,7 +27,7 @@
       id="accordionSidebar" style="z-index: 1">
 
       <!-- Sidebar - Brand -->
-      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index">
+      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{% url 'general.index' %}">
         <div class="sidebar-brand-icon rotate-n-15">
           <link rel="icon" type="image/png" href="{% static 'icon.png' %}" />
         </div>
@@ -44,7 +44,7 @@
 
       <!-- Nav Item - Dashboard -->
       <li class="nav-item active">
-        <a class="nav-link" href="index">
+        <a class="nav-link" href="{% url 'general.index' %}">
           <i class="fas fa-fw fa-user"></i>
           <span>Inicio</span></a>
       </li>
