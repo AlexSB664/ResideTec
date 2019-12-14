@@ -27,7 +27,7 @@
       id="accordionSidebar" style="z-index: 1">
 
       <!-- Sidebar - Brand -->
-      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index">
         <div class="sidebar-brand-icon rotate-n-15">
           <link rel="icon" type="image/png" href="{% static 'icon.png' %}" />
         </div>
@@ -240,8 +240,10 @@
         </ul>
 
       </nav>
-      {% block content %}
-      {% endblock %}
+      <div class="container animated fadeInDown">
+        {% block content %}
+        {% endblock %}
+      </div>
       <footer class="sticky-footer bg-white">
         <div class="container my-auto">
           <div class="copyright text-center my-auto">

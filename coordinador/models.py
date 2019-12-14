@@ -27,4 +27,4 @@ class Oferta(models.Model):
 	creado_por = models.ForeignKey(User, related_name='publico_oferta', on_delete=models.CASCADE,null=True)
 
 	def __str__(self):
-		return self.pk+self.titulo
+		return str(self.pk)+self.titulo
