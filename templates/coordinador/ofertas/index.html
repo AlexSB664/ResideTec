@@ -24,7 +24,7 @@
                     <a href="#" class="btn btn-primary">Mas informacion &rarr;</a>
                 </div>
                 <div class="card-footer text-muted">
-                    Publicado {{ oferta.creado }} por
+                    Publicado {{ oferta.creado | timesince }} por
                     <a href="{% url 'perfil.publico' %}?id={{user.id}}">{{oferta.creado_por.get_full_name}}</a>
                 </div>
             </div>
