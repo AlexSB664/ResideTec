@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect, HttpResponse
 from django.contrib import auth
-from .forms import ProyectoForm,OfertaForm
+from .forms import ProyectoForm, OfertaForm
 from alumno.models import Proyecto
 from .models import Oferta
 from superusuario.models import User
@@ -20,6 +20,8 @@ def login(request):
             auth.login(request, user)
             if (user.has_perm('coordinador.is_admin')):
                 return redirect('general.index')
+            elif (user.has_perm('alumno.is_student')):
+                return redirect('alumno.index')
             else:
                 return redirect('logout')
         else:
@@ -28,9 +30,11 @@ def login(request):
     else:
         return render(request, 'login.html')
 
+
 def logout(request):
     auth.logout(request.user)
     return redirect('login')
+
 
 @login_required
 def generalIndex(request):
@@ -74,14 +78,16 @@ def addProjectoToLog(request):
                 return redirect('login')
     else:
         form = ProyectoForm()
-        return render(request,'coordinador/addResidencia.html',{
-            'form':form
+        return render(request, 'coordinador/addResidencia.html', {
+            'form': form
         })
+
 
 @login_required
 def indexProjects(request):
     projects = Proyecto.objects.all()
-    return render(request,'coordinador/projectsIndex.html',{'projects':projects})
+    return render(request, 'coordinador/projectsIndex.html', {'projects': projects})
+
 
 @login_required
 def nuevaOferta(request):
@@ -97,16 +103,18 @@ def nuevaOferta(request):
                 return redirect('ofertas.index')
     else:
         form = OfertaForm()
-        return render(request,'coordinador/ofertas/nueva.html',{
-            'form':form
+        return render(request, 'coordinador/ofertas/nueva.html', {
+            'form': form
         })
+
 
 @login_required
 def indexOferta(request):
     ofertas = Oferta.objects.order_by('id').reverse()
-    return render(request,'coordinador/ofertas/index.html',{'ofertas':ofertas})
+    return render(request, 'coordinador/ofertas/index.html', {'ofertas': ofertas})
+
 
 @login_required
 def perfilPublico(request):
     user = User.objects.get(id=request.GET['id'])
-    return render(request,'coordinador/perfil/view.html',{'user':user})
+    return render(request, 'coordinador/perfil/view.html', {'user': user})
