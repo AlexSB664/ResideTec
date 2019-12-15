@@ -16,4 +16,5 @@ urlpatterns = [
 	url(r'^ofertas/nueva$',views.nuevaOferta, name='nuevaOferta'),
 	url(r'^ofertas/index$',views.indexOferta, name='ofertas.index'),
 	url(r'^usuarios/perfil$',views.perfilPublico, name='perfil.publico'),
+	url(r'^ofertas/detalles$',views.detalleOferta, name='detalleoferta'),
 ]

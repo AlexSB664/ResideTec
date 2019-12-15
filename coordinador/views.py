@@ -108,5 +108,10 @@ def indexOferta(request):
 
 @login_required
 def perfilPublico(request):
-    user = User.objects.get(id=request.GET['id'])
-    return render(request,'coordinador/perfil/view.html',{'user':user})
+    user = User.objects.get(id=request.GET['userid'])
+    return render(request,'coordinador/perfil/view.html',{'coruser':user})
+
+@login_required
+def detalleOferta(request):
+    offer = Oferta.objects.get(id=request.GET['offerid'])
+    return render(request, 'coordinador/ofertas/detail.html',{'oferta':offer})
