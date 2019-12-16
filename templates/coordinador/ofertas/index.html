@@ -9,23 +9,24 @@
 
         <!-- Blog Entries Column -->
         <div class="col-md-8">
+         <h1 class="my-4">Oferta de Trabajo
+                <small>Ingenieria en sistemas</small>
+            </h1>
         {% for oferta in ofertas %}
         <!-- Blog Body -->
 
-            <h1 class="my-4">Oferta de Trabajo
-                <small>Ingenieria en sistemas</small>
-            </h1>
+           
 
             <div class="card mb-4">
                 <img class="card-img-top" src="{{ oferta.flyer.url }}" alt="Card image cap">
                 <div class="card-body">
                     <h2 class="card-title">{{ oferta.titulo }}</h2>
                     <p class="card-text">{{oferta.descripcion}}</p>
-                    <a href="#" class="btn btn-primary">Mas informacion &rarr;</a>
+                    <a href="{% url 'detalleoferta' %}?offerid={{oferta.id}}" class="btn btn-primary">Mas informacion &rarr;</a>
                 </div>
                 <div class="card-footer text-muted">
                     Publicado {{ oferta.creado | timesince }} por
-                    <a href="{% url 'perfil.publico' %}?id={{user.id}}">{{oferta.creado_por.get_full_name}}</a>
+                    <a href="{% url 'perfil.publico' %}?userid={{oferta.creado_por.id}}">{{oferta.creado_por.get_full_name}}</a>
                 </div>
             </div>
             <!-- Blog Body END -->

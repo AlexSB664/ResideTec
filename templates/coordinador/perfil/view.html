@@ -5,29 +5,30 @@
 <div class="container-fluid animated fadeInDown">
     <div class="card shadow mb-4">
         <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">Perfil Publico de {{ user.get_full_name }}</h6>
+            <h6 class="m-0 font-weight-bold text-primary">Perfil Publico de {{ coruser.get_full_name }}</h6>
         </div>
         <div class="card-body">
             <div class="row">
                 <div class="col-md-6">
                     <div class="row">
-                        <h3 style="color: black;">Nombre: {{ user.get_full_name }}</h3>
+                        <h3 style="color: black;">Nombre: {{ coruser.get_full_name }}</h3>
                     </div>
                     <div class="row">
                         <h2>Medios de Contacto</h2>
                     </div>
                     <div class="row">
-                        <h3>Correo: {{ user.email }}</h3>
+                        <h3>Correo: {{ coruser.email }}</h3>
                     </div>
                     <div class="row">
-                        <h3>Telefono: {{ user.telefono }}</h3>
+                        <h3>Telefono: {{ coruser.telefono }}</h3>
                     </div>
                     <div class="row">
-                        <h3>Whatsapp: <a href="https://api.whatsapp.com/send?phone=52{{ user.telefono }}&text=Hola,%20tengo%20algunas%20preguntas"><i class="fab fa-whatsapp-square" target="_blank"></i></a></h3>
+                            <h3>Whatsapp: <a href="https://api.whatsapp.com/send?phone=52{{ coruser.telefono }}&text=Hola,%20tengo%20algunas%20preguntas"><span style="color: forestgreen"><i class="fab fa-whatsapp-square " target="_blank"></i></span></a></h3>
+                            
                     </div>
                 </div>
                 <div class="col-md-6">
-                    <img src="{{ user.foto_perfil.url }}" width="450" height="550">
+                    <img src="{{ coruser.foto_perfil.url }}" width="450" height="550">
                 </div>
             </div>
 

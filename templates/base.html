@@ -23,8 +23,8 @@
 
 <body id="page-top">
   <div id="wrapper">
-    <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion animated fadeInDown "
-      id="accordionSidebar" style="z-index: 1">
+    <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion animated fadeInDown " id="accordionSidebar"
+      style="z-index: 1">
 
       <!-- Sidebar - Brand -->
       <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{% url 'general.index' %}">
@@ -52,71 +52,11 @@
       <!-- Divider -->
       <hr class="sidebar-divider">
 
-      <!-- Heading -->
-      <div class="sidebar-heading">
-        Proyectos
-      </div>
-
-      <!-- Nav Item - Pages Collapse Menu -->
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true"
-          aria-controls="collapseTwo">
-          <i class="fas fa-fw fa-newspaper-o"></i>
-          <span>Ofertas</span>
-        </a>
-        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-          <div class="bg-white py-2 collapse-inner rounded">
-            <h6 class="collapse-header">Ofertas:</h6>
-            <a class="collapse-item" href="{% url 'nuevaOferta' %}">Nueva Oferta</a>
-            <a class="collapse-item" href="{% url 'ofertas.index' %}">Ver Ofertas</a>
-            <!-- <a class="collapse-item" href="ofertaproyecto">Investigacion</a> -->
-          </div>
-        </div>
-      </li>
-
-      <!-- Nav Residencias -->
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseResidencias"
-          aria-expanded="true" aria-controls="collapseResidencias">
-          <i class="fas fa-fw fa-briefcase"></i>
-          <span>Residencias</span>
-        </a>
-        <div id="collapseResidencias" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-          <div class="bg-white py-2 collapse-inner rounded">
-            <h6 class="collapse-header">Acciones:</h6>
-            <a class="collapse-item" href="{% url 'offerproy' %}">Ver Ofertas Feik</a>
-            <a class="collapse-item" href="{% url 'addOldProject' %}">Agregar nuevos Proyectos</a>
-            <a class="collapse-item" href="{% url 'projects.index' %}">Todos los Proyectos</a>
-            <!-- <a class="collapse-item" href="ofertaproyecto">Investigacion</a> -->
-          </div>
-        </div>
-      </li>
-
-      <!-- Nav Item - Utilities Collapse Menu -->
-      <li class="nav-item">
-        <a class="nav-link" href="calificaciones">
-          <i class="fas fa-fw fa-table"></i>
-          <span>Calificaciones</span>
-        </a>
-
-      </li>
-
-
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseAlumnos"
-          aria-expanded="true" aria-controls="collapseAlumnos">
-          <i class="fas fa-fw fa-users"></i>
-          <span>Alumnos</span>
-        </a>
-        <div id="collapseAlumnos" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-          <div class="bg-white py-2 collapse-inner rounded">
-            <h6 class="collapse-header">Acciones:</h6>
-            <a class="collapse-item" href="{% url 'offerproy' %}">Agregar Alumno</a>
-            <a class="collapse-item" href="{% url 'addOldProject' %}">Todos los Alumnos</a>
-            <!-- <a class="collapse-item" href="ofertaproyecto">Investigacion</a> -->
-          </div>
-        </div>
-      </li>
+      {% if perms.coordinador.is_admin %}
+      {% include "coordinador/nav.html" %}
+      {% elif perms.alumno.is_student %}
+      {% include "alumno/nav.html" %}
+      {% endif %}
 
 
       <!-- Divider -->
