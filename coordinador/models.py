@@ -25,6 +25,7 @@ class Oferta(models.Model):
 	creado = models.DateTimeField(auto_now_add=True,null=True)
 	modified = models.DateTimeField(auto_now=True,null=True)
 	creado_por = models.ForeignKey(User, related_name='publico_oferta', on_delete=models.CASCADE,null=True)
+	carrera = models.ForeignKey(Carrera, related_name='carrera_oferta', on_delete=models.CASCADE,null=True)
 
 	def __str__(self):
 		return str(self.pk)+self.titulo

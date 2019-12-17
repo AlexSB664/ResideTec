@@ -31,6 +31,8 @@ class Proyecto(models.Model):
 
     carrera = models.ForeignKey(Carrera, on_delete=models.CASCADE,
                                 blank=True, null=True, related_name="carrera_del_proyecto")
+    creado_por = models.ForeignKey(
+        User, related_name='usuario_proyecto', on_delete=models.CASCADE, null=True)
 
     def __str__(self):
         return self.nombre

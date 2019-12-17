@@ -3,6 +3,7 @@ from django.contrib.auth.decorators import login_required, permission_required
 from .models import Proyecto, Alumno
 from .forms import MyProyectoForm
 from superusuario.models import Carrera, User
+from coordinador.models import Oferta
 # Create your views here.
 
 
@@ -16,14 +17,11 @@ def nuevoProyecto(request):
             proyecto.carrera = Carrera.objects.get(id=request.user.carrera.id)
             proyecto.terminado = 0
             proyecto.estatus = 'nuevo'
+            proyecto.creado_por = request.user
             proyecto.save()
             if proyecto.pk is not None:
                 alumno_tmp = Alumno.objects.get(email=request.user.id)
-                print(proyecto)
-                print(proyecto.pk)
-                print(alumno_tmp)
                 alumno_tmp.proyecto_id = proyecto.pk
-                print(alumno_tmp.proyecto_id)
                 alumno_tmp.save()
                 return redirect('alumno.proyecto.detalles')
             else:
@@ -60,3 +58,9 @@ def editar_proyecto(request):
         return redirect('alumno.proyecto.detalles')
     form = MyProyectoForm(instance=proyecto_tmp)
     return render(request, 'alumno/proyectos/nuevo.html', {'form': form})
+
+@login_required
+@permission_required('alumno.is_student', raise_exception=True)
+def ver_ofertas(request):
+    ofertas = Oferta.objects.all().filter(carrera=request.user.carrera.id).order_by('id').reverse()
+    return render(request, 'coordinador/ofertas/index.html', {'ofertas': ofertas})

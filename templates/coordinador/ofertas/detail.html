@@ -3,12 +3,20 @@
 {% block content %}
 {% load static %}
 
-<div class="text-center"> 
-<h2>{{oferta.titulo}} </h2>
+<div class="text-center">
+    <h2>{{oferta.titulo}} </h2>
 </div>
 <img class="card-img-top" src="{{ oferta.flyer.url }}" alt="Card image cap">
-
-<h3>Enviar un Whatsapp: <a href="https://api.whatsapp.com/send?phone=52{{ oferta.telefono_contacto }}&text=Hola,%20tengo%20algunas%20preguntas"><span style="color: forestgreen"><i class="fab fa-whatsapp-square " target="_blank"></i></span></a></h3>
-<!-- <h3>Enviar correo electronico: <a href="https://mail.google.com/mail/?view=cm&fs=1&to={{ oferta.correo_contacto }}&su=Solicitud%20de%20oferta&body=Hola,%20tengo%20algunas%20preguntas&bcc={{ oferta.correo_contacto }}"><span style="color: forestgreen"><i class="fab fa-whatsapp-square " target="_blank"></i></span></a></h3> -->
-<h3>Enviar correo electronico: <a href="mailto:{{ oferta.correo_contacto }}?subject=Solicitud%20de%20oferta&amp;body=Hola,%20tengo%20algunas%20preguntas"><span style="color: forestgreen"><i class=" fab fa-envelope " target="_blank"></i></span></a></h3>
+<div class="text-rigth">
+    <h2>{{oferta.titulo}} </h2>
+    <h2>Descripcion: </h2>
+    <h2>{{oferta.descripcion}} </h2>
+    <h3>Enviar un Whatsapp: <a
+            href="https://api.whatsapp.com/send?phone=52{{ oferta.telefono_contacto }}&text=Hola,%20tengo%20algunas%20preguntas"><span
+                style="color: forestgreen"><i class="fab fa-whatsapp-square " target="_blank"></i></span></a></h3>
+    <!-- <h3>Enviar correo electronico: <a href="https://mail.google.com/mail/?view=cm&fs=1&to={{ oferta.correo_contacto }}&su=Solicitud%20de%20oferta&body=Hola,%20tengo%20algunas%20preguntas&bcc={{ oferta.correo_contacto }}"><span style="color: forestgreen"><i class="fab fa-whatsapp-square " target="_blank"></i></span></a></h3> -->
+    <h3>Enviar correo electronico: <a
+            href="mailto:{{ oferta.correo_contacto }}?subject=Solicitud%20de%20oferta&amp;body=Hola,%20tengo%20algunas%20preguntas"><span
+                style="color: forestgreen"><i class=" fas fa-envelope-square" target="_blank"></i></span></a></h3>
+</div>
 {% endblock %}

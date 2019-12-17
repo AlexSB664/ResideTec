@@ -20,19 +20,10 @@
 </li>
 <!-- Nav Item - Pages Collapse Menu -->
 <li class="nav-item">
-    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true"
-        aria-controls="collapseTwo">
+    <a class="nav-link" href="{% url 'alumno.oferta.index' %}">
         <i class="fas fa-fw fa-newspaper-o"></i>
-        <span>Ofertas</span>
+        <span>Ofertas De Trabajo</span>
     </a>
-    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-        <div class="bg-white py-2 collapse-inner rounded">
-            <h6 class="collapse-header">Ofertas:</h6>
-            <a class="collapse-item" href="{% url 'nuevaOferta' %}">Nueva Oferta</a>
-            <a class="collapse-item" href="{% url 'ofertas.index' %}">Ver Ofertas</a>
-            <!-- <a class="collapse-item" href="ofertaproyecto">Investigacion</a> -->
-        </div>
-    </div>
 </li>
 <!-- Nav Item - Utilities Collapse Menu -->
 <li class="nav-item">
@@ -47,14 +38,14 @@
 <li class="nav-item">
     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseAlumnos" aria-expanded="true"
         aria-controls="collapseAlumnos">
-        <i class="fas fa-fw fa-users"></i>
-        <span>Alumnos</span>
+        <i class="fas fa-fw fa-file-text"></i>
+        <span>Documentos</span>
     </a>
     <div id="collapseAlumnos" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Acciones:</h6>
-            <a class="collapse-item" href="{% url 'offerproy' %}">Agregar Alumno</a>
-            <a class="collapse-item" href="{% url 'addOldProject' %}">Todos los Alumnos</a>
+            <a class="collapse-item" href="#">Mis Documentos</a>
+            <a class="collapse-item" href="#">Pendientes</a>
             <!-- <a class="collapse-item" href="ofertaproyecto">Investigacion</a> -->
         </div>
     </div>
