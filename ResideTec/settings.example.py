@@ -53,6 +53,7 @@ INSTALLED_APPS = [
     'asesor',
     'alumno',
     'django.contrib.humanize',
+    'sweetify',
 ]
 
 MIDDLEWARE = [
