@@ -23,7 +23,7 @@ class OfertaForm(forms.ModelForm):
     class Meta:
         model = Oferta
         fields = ('flyer', 'titulo', 'descripcion',
-                  'telefono_contacto', 'correo_contacto')
+                  'telefono_contacto', 'correo_contacto','carrera')
         widgets = {
             'flyer': forms.FileInput(attrs={'class': 'form-control', 'accept': 'img', 'onchange': 'loadFile(event)'}),
         }

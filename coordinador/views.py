@@ -9,6 +9,7 @@ from superusuario.models import User
 # Create your views here.
 import sys
 from pprint import pprint
+import sweetify
 
 
 def login(request):
@@ -97,10 +98,13 @@ def nuevaOferta(request):
             oferta = form.save(commit=False)
             oferta.flyer = request.FILES['flyer']
             oferta.creado_por = User.objects.get(id=request.user.id)
-            if oferta.save():
-                return redirect('ofertas.index')
+            oferta.save()
+            if oferta.pk is None:
+                sweetify.error(request, 'La oferta no se pudo guardar :(')
             else:
-                return redirect('ofertas.index')
+                form.save_m2m()
+                sweetify.success(request, 'La Oferta se a guardado')
+            return redirect('ofertas.index')
     else:
         form = OfertaForm()
         return render(request, 'coordinador/ofertas/nueva.html', {
@@ -117,9 +121,10 @@ def indexOferta(request):
 @login_required
 def perfilPublico(request):
     user = User.objects.get(id=request.GET['userid'])
-    return render(request,'coordinador/perfil/view.html',{'coruser':user})
+    return render(request, 'coordinador/perfil/view.html', {'coruser': user})
+
 
 @login_required
 def detalleOferta(request):
     offer = Oferta.objects.get(id=request.GET['offerid'])
-    return render(request, 'coordinador/ofertas/detail.html',{'oferta':offer})
+    return render(request, 'coordinador/ofertas/detail.html', {'oferta': offer})
