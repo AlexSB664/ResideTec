@@ -2,8 +2,8 @@ from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect, HttpResponse
 from django.contrib import auth
-from .forms import ProyectoForm, OfertaForm
-from alumno.models import Proyecto
+from .forms import ProyectoForm, OfertaForm, SimpleAlumnoForm
+from alumno.models import Proyecto,Alumno
 from .models import Oferta
 from superusuario.models import User
 # Create your views here.
@@ -128,3 +128,26 @@ def perfilPublico(request):
 def detalleOferta(request):
     offer = Oferta.objects.get(id=request.GET['offerid'])
     return render(request, 'coordinador/ofertas/detail.html', {'oferta': offer})
+
+
+@login_required
+def nuevoAlumno(request):
+    if request.method == 'POST':
+        form = SimpleAlumnoForm(request.POST)
+        if form.is_valid():
+            usr = form.save(commit=False)
+            usr.save()
+            if usr.pk is None:
+                sweetify.error(request, 'no se pudo guardar el alumno :(')
+            else:
+                alum = Alumno()
+                alum.email = usr
+                alum.NoControl = form.cleaned_data['NoControl']
+                alum.save()
+                sweetify.success(request, 'alumno guardado correctamente')
+            return redirect('ofertas.index')
+    else:
+        form = SimpleAlumnoForm()
+        return render(request, 'coordinador/ofertas/nueva.html', {
+            'form': form
+        })
