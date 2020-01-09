@@ -3,13 +3,25 @@ from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect, HttpResponse
 from django.contrib import auth
 from .forms import ProyectoForm, OfertaForm, SimpleAlumnoForm
-from alumno.models import Proyecto,Alumno
+from alumno.models import Proyecto, Alumno
 from .models import Oferta
 from superusuario.models import User
-# Create your views here.
+from pusher import Pusher
 import sys
 from pprint import pprint
 import sweetify
+from django.conf import settings
+
+
+def pusher_push(my_channel, my_event, message):
+    pusher_client = Pusher(
+        app_id=settings.APP_ID,
+        key=settings.KEY,
+        secret=settings.SECRET,
+        cluster=settings.CLUSTER,
+        ssl=settings.SSL
+    )
+    pusher_client.trigger(my_channel, my_event, {'message': message})
 
 
 def login(request):
@@ -103,6 +115,8 @@ def nuevaOferta(request):
                 sweetify.error(request, 'La oferta no se pudo guardar :(')
             else:
                 form.save_m2m()
+                print(request.user.get_full_name())
+                pusher_push('general', 'new_offert', request.user.get_full_name() +' ha publicado una nueva oferta')
                 sweetify.success(request, 'La Oferta se a guardado')
             return redirect('ofertas.index')
     else:

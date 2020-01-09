@@ -7,6 +7,28 @@
   <meta http-equiv='X-UA-Compatible' content='IE=edge'>
   <link rel="icon" type="image/png" href="{% static 'icon.png' %}" />
   <title>Bienvenido</title>
+  <script src="https://js.pusher.com/5.0/pusher.min.js"></script>
+  <script>
+
+    // Enable pusher logging - don't include this in production
+    Pusher.logToConsole = true;
+
+    var pusher = new Pusher('aafff96b50eb9f577cc8', {
+      cluster: 'us3',
+      forceTLS: true
+    });
+
+    var channel = pusher.subscribe('general');
+    channel.bind('new_offert', function (data) {
+      if (window.Notification && Notification.permission !== 'denied') {
+        Notification.requestPermission();
+      }
+
+      if (Notification.permission === 'granted') {
+        var noti = new Notification(data.message);
+      }
+    });
+  </script>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
   <link href="{% static 'font-awesome/css/font-awesome.css' %}" rel="stylesheet">
