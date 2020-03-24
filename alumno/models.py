@@ -53,3 +53,16 @@ class Alumno(models.Model):
         permissions = (
             ('is_student', 'Is_Student'),
         )
+
+
+class Calificaciones(models.Model):
+    alumno = models.ForeignKey(Alumno, on_delete=models.CASCADE,
+                               blank=True, null=True, related_name="alumno_evaluado")
+    no_evaluacion = models.IntegerField(default=1, null=False)
+    asesori = models.ForeignKey(AsesorInterno, on_delete=models.CASCADE,
+                                blank=True, null=True, related_name="asesorinterno_evalua")
+    # asesore
+    asesore = models.ForeignKey(AsesorExterno, on_delete=models.CASCADE,
+                                blank=True, null=True, related_name="asesorexterno_evalua")
+    calificacion_interna = models.IntegerField(default=0, null=False)
+    calificacion_externa = models.IntegerField(default=0, null=False)

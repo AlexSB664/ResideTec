@@ -12,8 +12,8 @@
     <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Ofertas:</h6>
-            <a class="collapse-item" href="{% url 'nuevaOferta' %}">Nueva Oferta</a>
-            <a class="collapse-item" href="{% url 'ofertas.index' %}">Ver Ofertas</a>
+            <a class="collapse-item" href="{% url 'coor.nuevaOferta' %}">Nueva Oferta</a>
+            <a class="collapse-item" href="{% url 'coor.ofertas.index' %}">Ver Ofertas</a>
             <!-- <a class="collapse-item" href="ofertaproyecto">Investigacion</a> -->
         </div>
     </div>
@@ -29,8 +29,8 @@
         <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Acciones:</h6>
             <a class="collapse-item" href="{% url 'offerproy' %}">Ver Ofertas Feik</a>
-            <a class="collapse-item" href="{% url 'addOldProject' %}">Agregar nuevos Proyectos</a>
-            <a class="collapse-item" href="{% url 'projects.index' %}">Todos los Proyectos</a>
+            <a class="collapse-item" href="{% url 'coor.addOldProject' %}">Agregar nuevos Proyectos</a>
+            <a class="collapse-item" href="{% url 'coor.projects.index' %}">Todos los Proyectos</a>
             <!-- <a class="collapse-item" href="ofertaproyecto">Investigacion</a> -->
         </div>
     </div>
@@ -55,8 +55,8 @@
     <div id="collapseAlumnos" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Acciones:</h6>
-            <a class="collapse-item" href="{% url 'alumno.nuevo' %}">Agregar Alumno</a>
-            <a class="collapse-item" href="{% url 'addOldProject' %}">Todos los Alumnos</a>
+            <a class="collapse-item" href="{% url 'coor.alumno.nuevo' %}">Agregar Alumno</a>
+            <a class="collapse-item" href="{% url 'coor.alumno.index' %}">Todos los Alumnos</a>
             <!-- <a class="collapse-item" href="ofertaproyecto">Investigacion</a> -->
         </div>
     </div>

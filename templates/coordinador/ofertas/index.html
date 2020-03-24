@@ -2,31 +2,33 @@
 {% block title%}Ofertas{% endblock %}
 {% block content %}
 {% load static %}
-{% load humanize %} 
+{% load humanize %}
 <div class="container">
 
     <div class="row">
 
         <!-- Blog Entries Column -->
         <div class="col-md-8">
-         <h1 class="my-4">Oferta de Trabajo
+            <h1 class="my-4">Oferta de Trabajo
                 <small>Ingenieria en sistemas</small>
             </h1>
-        {% for oferta in ofertas %}
-        <!-- Blog Body -->
+            {% for oferta in ofertas %}
+            <!-- Blog Body -->
 
-           
+
 
             <div class="card mb-4">
                 <img class="card-img-top" src="{{ oferta.flyer.url }}" alt="Card image cap">
                 <div class="card-body">
                     <h2 class="card-title">{{ oferta.titulo }}</h2>
                     <p class="card-text">{{oferta.descripcion}}</p>
-                    <a href="{% url 'detalleoferta' %}?offerid={{oferta.id}}" class="btn btn-primary">Mas informacion &rarr;</a>
+                    <a href="{% url 'detalleoferta' %}?offerid={{oferta.id}}" class="btn btn-primary">Mas informacion
+                        &rarr;</a>
                 </div>
                 <div class="card-footer text-muted">
                     Publicado {{ oferta.creado | timesince }} por
-                    <a href="{% url 'perfil.publico' %}?userid={{oferta.creado_por.id}}">{{oferta.creado_por.get_full_name}}</a>
+                    <a
+                        href="{% url 'perfil.publico' %}?userid={{oferta.creado_por.id}}">{{oferta.creado_por.get_full_name}}</a>
                 </div>
             </div>
             <!-- Blog Body END -->
@@ -36,12 +38,25 @@
 
             <!-- Pagination -->
             <ul class="pagination justify-content-center mb-4">
+                {% if ofertas.has_previous %}
                 <li class="page-item">
-                    <a class="page-link" href="#">&larr; Anterior</a>
+                    <a class="page-link" href="?page=1">&larr;&larr; Primero</a>
                 </li>
-                <li class="page-item disabled">
-                    <a class="page-link" href="#">Siguiente &rarr;</a>
+                <li class="page-item">
+                    <a class="page-link" href="?page={{ ofertas.previous_page_number }}">&larr; Anterior</a>
                 </li>
+                {% endif %}
+                <li class="page-item">
+                    <a class="page-link" href="">Pagina {{ ofertas.number }} de {{ ofertas.paginator.num_pages }}</a>
+                </li>
+                {% if ofertas.has_next %}
+                <li class="page-item">
+                    <a class="page-link" href="?page={{ ofertas.next_page_number }}">Siguiente &rarr;</a>
+                </li>
+                <li class="page-item">
+                    <a class="page-link" href="?page={{ ofertas.paginator.num_pages }}">Ultima &rarr;&rarr;</a>
+                </li>
+                {% endif %}
             </ul>
 
         </div>

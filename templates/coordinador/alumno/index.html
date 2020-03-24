@@ -1,0 +1,89 @@
+{% extends 'base.html'%} {% block title%}Ofertas{% endblock %} {% block content %} {% load static %}
+<div class="container">
+
+    <div class="row">
+
+        <!-- Blog Entries Column -->
+        <div class="col-md-8">
+            <h1 class="my-4">Alumnos
+                <small>Ingenieria en sistemas</small>
+            </h1>
+            {% for alumno in page %}
+            <!-- Blog Body -->
+
+
+
+            <div class="card mb-4">
+                {%if not alumno.email.foto_perfil or alumno.email.foto_perfil.url == '/media/default.jpeg' %}
+                <img src="/static/logo.svg" width="250" height="190"> {% else %}
+                <img src="{{alumno.email.foto_perfil.url}}" width="250" height="190"> {% endif %}
+                <div class="card-body">
+                    <h2 class="card-title"></h2>
+                    <p class="card-text">Email: {{alumno.email}}</p>
+                    <p class="card-text">Matricula: {{alumno.NoControl}}</p>
+                    <p class="card-text">Carrera: {{alumno.email.carrera}}</p>
+                    <div class="row">
+                        <a><i class="fa fa-edit"></i></a>
+                        <a><i class="fa fa-trash"></i></a>
+                    </div>
+                    <a href="" class="btn btn-primary">Mas informacion &rarr;</a>
+                </div>
+            </div>
+            <!-- Blog Body END -->
+            {% endfor %}
+            <!-- Blog Post -->
+
+
+            <!-- Pagination -->
+            <ul class="pagination justify-content-center mb-4">
+                {% if page.has_previous %}
+                <li class="page-item">
+                    <a class="page-link" href="?page=1">&larr;&larr; Primero</a>
+                </li>
+                <li class="page-item">
+                    <a class="page-link" href="?page={{ page.previous_page_number }}">&larr; Anterior</a>
+                </li>
+                {% endif %}
+                <li class="page-item">
+                    <a class="page-link" href="">Pagina {{ page.number }} de {{ page.paginator.num_pages }}</a>
+                </li>
+                {% if page.has_next %}
+                <li class="page-item">
+                    <a class="page-link" href="?page={{ page.next_page_number }}">Siguiente &rarr;</a>
+                </li>
+                <li class="page-item">
+                    <a class="page-link" href="?page={{ page.paginator.num_pages }}">Ultima &rarr;&rarr;</a>
+                </li>
+                {% endif %}
+            </ul>
+
+        </div>
+
+        <!-- Sidebar Widgets Column -->
+        <div class="col-md-4">
+
+            <!-- Search Widget -->
+            <div class="card my-4">
+                <h5 class="card-header">Buscar</h5>
+                <div class="card-body">
+                    <div class="input-group">
+                        <form action="{% url 'coor.alumno.index' %}" method="GET">
+                            <input type="text" class="form-control" placeholder="Buscar alumno..." name="q" id="q">
+                            <span class="input-group-btn">
+                                <button class="btn btn-secondary" type="submit">Buscar</button>
+                            </span>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+    <!-- /.row -->
+
+</div>
+<!-- /.container -->
+
+
+{% endblock %}

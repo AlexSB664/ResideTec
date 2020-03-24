@@ -11,6 +11,8 @@ import sys
 from pprint import pprint
 import sweetify
 from django.conf import settings
+from django.core.paginator import Paginator
+from django.db.models import Q
 
 
 def pusher_push(my_channel, my_event, message):
@@ -116,9 +118,10 @@ def nuevaOferta(request):
             else:
                 form.save_m2m()
                 print(request.user.get_full_name())
-                pusher_push('general', 'new_offert', request.user.get_full_name() +' ha publicado una nueva oferta')
+                pusher_push('general', 'new_offert', request.user.get_full_name(
+                ) + ' ha publicado una nueva oferta')
                 sweetify.success(request, 'La Oferta se a guardado')
-            return redirect('ofertas.index')
+            return redirect('coor.ofertas.index')
     else:
         form = OfertaForm()
         return render(request, 'coordinador/ofertas/nueva.html', {
@@ -129,7 +132,10 @@ def nuevaOferta(request):
 @login_required
 def indexOferta(request):
     ofertas = Oferta.objects.order_by('id').reverse()
-    return render(request, 'coordinador/ofertas/index.html', {'ofertas': ofertas})
+    paginator = Paginator(ofertas, 5)
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+    return render(request, 'coordinador/ofertas/index.html', {'ofertas': page_obj})
 
 
 @login_required
@@ -150,6 +156,8 @@ def nuevoAlumno(request):
         form = SimpleAlumnoForm(request.POST)
         if form.is_valid():
             usr = form.save(commit=False)
+            usr.set_password(form.cleaned_data['NoControl'])
+            usr.carrera = request.user.carrera
             usr.save()
             if usr.pk is None:
                 sweetify.error(request, 'no se pudo guardar el alumno :(')
@@ -159,9 +167,27 @@ def nuevoAlumno(request):
                 alum.NoControl = form.cleaned_data['NoControl']
                 alum.save()
                 sweetify.success(request, 'alumno guardado correctamente')
-            return redirect('ofertas.index')
+        else:
+            form_error = []
+            for field, errors in form.errors.items():
+                form_error.append('Campo: {} Errores: {}'.format(
+                    field, ','.join(errors)))
+            sweetify.error(request, ','.join(form_error))
+        return redirect('coor.alumno.index')
     else:
         form = SimpleAlumnoForm()
         return render(request, 'coordinador/ofertas/nueva.html', {
             'form': form
         })
+
+
+@login_required
+def indexAlumno(request):
+    alumnos = Alumno.objects.order_by('id').reverse()
+    if(request.GET.get('q')):
+        alumnos = alumnos.filter( Q (email__email__icontains=request.GET.get('q')) | Q (NoControl__icontains=request.GET.get('q')) |Q (email__nombres__icontains=request.GET.get('q')) )
+        # print(alumnos.query)
+    paginator = Paginator(alumnos, 5)
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+    return render(request, 'coordinador/alumno/index.html', {'page': page_obj})

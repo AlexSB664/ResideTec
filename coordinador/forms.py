@@ -51,8 +51,20 @@ class UserCreationForm(forms.ModelForm):
             user.save()
         return user
 
-class SimpleAlumnoForm(UserCreationForm):
-    NoControl = forms.CharField(label='Matricula:', widget=forms.TextInput(attrs={'class':'form-control','type': 'number'}))
-    class Meta(UserCreationForm.Meta):
+class SimpleUserStudentForm(forms.ModelForm):
+    class Meta:
         model = User
-        fields = ('email','password1','password2')
+        fields = ('email',)
+    
+    def save(self,commit=True):
+        user = super().save(commit=False)
+        if commit:
+            user.set_password("password")
+            user.save()
+        return user
+
+class SimpleAlumnoForm(SimpleUserStudentForm):
+    NoControl = forms.CharField(label='Matricula:')
+    class Meta(SimpleUserStudentForm.Meta):
+        model = User
+        fields = ('email',)

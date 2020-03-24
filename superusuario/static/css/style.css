@@ -1269,9 +1269,9 @@ button.dim:active:before {
 }
 .pagination > li > a,
 .pagination > li > span {
-  background-color: #FFFFFF;
+  background-color: #4E73DF;
   border: 1px solid #DDDDDD;
-  color: inherit;
+  color: #FFFFFF;
   float: left;
   line-height: 1.42857;
   margin-left: -1px;

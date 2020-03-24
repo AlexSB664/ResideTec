@@ -17,18 +17,20 @@
                         <h2>Medios de Contacto</h2>
                     </div>
                     <div class="row">
-                        <h3>Correo: {{ coruser.email }}</h3>
+                        <h3 style="font-size:3vw;">Correo: {{ coruser.email }}</h3>
                     </div>
                     <div class="row">
                         <h3>Telefono: {{ coruser.telefono }}</h3>
                     </div>
                     <div class="row">
-                            <h3>Whatsapp: <a href="https://api.whatsapp.com/send?phone=52{{ coruser.telefono }}&text=Hola,%20tengo%20algunas%20preguntas"><span style="color: forestgreen"><i class="fab fa-whatsapp-square " target="_blank"></i></span></a></h3>
-                            
+                        <h3>Whatsapp: <a
+                                href="https://api.whatsapp.com/send?phone=52{{ coruser.telefono }}&text=Hola,%20tengo%20algunas%20preguntas"><span
+                                    style="color: forestgreen"><i class="fab fa-whatsapp-square "
+                                        target="_blank"></i></span></a></h3>
                     </div>
                 </div>
                 <div class="col-md-6">
-                    <img src="{{ coruser.foto_perfil.url }}" width="450" height="550">
+                    <img src="{{ coruser.foto_perfil.url }}" style='height: 100%; width: 100%; object-fit: contain'>
                 </div>
             </div>
 
