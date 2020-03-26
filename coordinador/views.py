@@ -1,4 +1,3 @@
-from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect, HttpResponse
 from django.contrib import auth
@@ -13,7 +12,7 @@ import sweetify
 from django.conf import settings
 from django.core.paginator import Paginator
 from django.db.models import Q
-
+from django.contrib.auth.models import Permission
 
 def pusher_push(my_channel, my_event, message):
     pusher_client = Pusher(
@@ -156,12 +155,15 @@ def nuevoAlumno(request):
         form = SimpleAlumnoForm(request.POST)
         if form.is_valid():
             usr = form.save(commit=False)
-            usr.set_password(form.cleaned_data['NoControl'])
+            usr.password = form.cleaned_data['NoControl']
             usr.carrera = request.user.carrera
-            usr.save()
+
+            usr.save() 
             if usr.pk is None:
                 sweetify.error(request, 'no se pudo guardar el alumno :(')
             else:
+                prm = Permission.objects.get(codename='is_student')
+                usr.user_permissions.add(prm)
                 alum = Alumno()
                 alum.email = usr
                 alum.NoControl = form.cleaned_data['NoControl']
